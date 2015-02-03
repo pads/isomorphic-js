@@ -1,12 +1,15 @@
+require('node-jsx').install({extension: '.jsx'});
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var url = require('url');
+var React = require('react/addons');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var reactApp = require('./public/javascripts/App.jsx');
 
 var app = express();
 
@@ -22,8 +25,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+// render react routes on server
+app.use(function(req, res, next) {
+  try {
+    var path = url.parse(req.url).pathname;
+    var app = reactApp({path: path});
+    var markup = React.renderComponentToString(app);
+    res.send(markup);
+  } catch(err) {
+    return next(err);
+  }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
