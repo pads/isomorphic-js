@@ -3,9 +3,9 @@
 
 var React = require('react');
 var Router = require('react-router-component');
-var Home = require('./views/Home.jsx');
-var About = require('./views/About.jsx');
-var NotFoundPage = require('./views/NotFound.jsx');
+var Home = require('../views/Home.jsx');
+var About = require('../views/About.jsx');
+var NotFoundPage = require('../views/NotFound.jsx');
 
 var Pages = Router.Pages;
 var Page = Router.Page;

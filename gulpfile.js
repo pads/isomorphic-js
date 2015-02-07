@@ -5,7 +5,7 @@ var webpack = require('gulp-webpack');
 var webpackConfig = require('./webpack.config');
 
 gulp.task('default', function() {
-  return gulp.src('bootstrap.jsx')
+  return gulp.src('src/bootstrap.jsx')
              .pipe(webpack(webpackConfig))
              .pipe(gulp.dest('public/javascripts/'));
 });
