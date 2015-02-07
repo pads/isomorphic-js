@@ -10,7 +10,7 @@ var url = require('url');
 var React = require('react');
 var engine = require('express-react-views');
 
-var reactApp = require('./public/javascripts/App.jsx');
+var reactApp = require('./App.jsx');
 
 var app = express();
 
