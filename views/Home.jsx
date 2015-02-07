@@ -2,6 +2,7 @@
 'use strict';
 
 var React = require('react');
+var Link = require('react-router-component').Link;
 
 var Home = React.createClass({
 
@@ -9,7 +10,7 @@ var Home = React.createClass({
     return (
       <section>
         <h1>WOO!</h1>
-        <a href="/About">About</a>
+        <Link href="/About">About</Link>
       </section>
     );
   }
