@@ -8,13 +8,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var url = require('url');
 var React = require('react');
+var engine = require('express-react-views');
 
 var reactApp = require('./public/javascripts/App.jsx');
 
 var app = express();
 
+app.set('view engine', 'jsx');
+app.engine('jsx', engine.createEngine());
+
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,7 +30,7 @@ app.use(function(req, res, next) {
   try {
     var path = url.parse(req.url).pathname;
     var app = reactApp({path: path});
-    var markup = React.renderComponentToString(app);
+    var markup = React.renderToString(app);
     res.send(markup);
   } catch(err) {
     return next(err);
@@ -47,7 +51,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        res.render('Error', {
             message: err.message,
             error: err
         });
@@ -58,7 +62,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('Error', {
         message: err.message,
         error: {}
     });

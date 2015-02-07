@@ -6,7 +6,12 @@ var React = require('react');
 var Home = React.createClass({
 
   render: function() {
-    return (<h1>WOO!</h1>)
+    return (
+      <section>
+        <h1>WOO!</h1>
+        <a href="/About">About</a>
+      </section>
+    );
   }
 
 });
