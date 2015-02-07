@@ -2,7 +2,19 @@
 
 Demonstrating Isomorphic JavaScript for [BrumJS](http://brumjs.github.io/)
 
+The example application uses:
+
+- [React](http://facebook.github.io/react/) as templates to render on both client and server.
+- [React Router Component](http://strml.viewdocs.io/react-router-component) for both client and server side routing.
+- [Webpack](http://webpack.github.io/) to package the server JS code to also be used on the client.
+
+# Todo
+
+- Implement an API to be used by client and server.
+
 # Setup
+
+You'll need to have [Node.JS](http://nodejs.org/) installed first, then:
 
     npm install
     npm start
