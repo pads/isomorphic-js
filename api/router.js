@@ -1,11 +1,8 @@
 var express = require('express');
+var aboutRouter = require('./about');
 
 var router = express.Router();
 
-router.route('/about').get(function(request, response) {
-  response.json({
-    name: 'Ben'
-  });
-});
+router.use('/about', aboutRouter);
 
 module.exports = router;
