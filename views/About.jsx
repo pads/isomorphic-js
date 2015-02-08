@@ -4,20 +4,13 @@
 var React = require('react');
 var ReactAsync = require('react-async');
 var Link = require('react-router-component').Link;
-var request = require('superagent');
+var request = require('../src/api-client');
 
 var About = React.createClass({
   mixins: [ReactAsync.Mixin],
 
   getInitialStateAsync: function(callback) {
-    var url;
-    if(process.browser) {
-      url = '/api/about';
-    } else {
-      url = this.props.host + '/api/about';
-    }
-
-    request.get(url, function (response) {
+    request.get('/api/about', this.props.host, function (response) {
       callback(null, {name: response.body.name});
     });
   },
