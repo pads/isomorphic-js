@@ -8,10 +8,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var url = require('url');
-var React = require('react');
+var ReactAsync = require('react-async');
 var engine = require('express-react-views');
 
 var reactApp = require('./src/App.jsx');
+var apiRouter = require('./api/router');
 
 var app = express();
 
@@ -32,17 +33,23 @@ app.set('view engine', 'jsx');
 app.engine('jsx', engine.createEngine());
 
 /*
- * Routing
+ * API Routing
+ */
+app.use('/api', apiRouter);
+
+/*
+ * Page Routing
  */
 app.use(function(req, res, next) {
-  try {
     var path = url.parse(req.url).pathname;
-    var app = reactApp({path: path});
-    var markup = React.renderToString(app);
-    res.send(markup);
-  } catch(err) {
-    return next(err);
-  }
+    var host = req.get('host');
+    var app = reactApp({path: path, host: host});
+    ReactAsync.renderToStringAsync(app, function(err, markup) {
+      if(err) {
+        return next(err);
+      }
+      res.send(markup);
+    });
 });
 
 /*

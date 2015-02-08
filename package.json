@@ -18,7 +18,9 @@
     "react-router-component": "~0.23.3",
     "node-jsx": "~0.12.4",
     "url": "~0.10.2",
-    "express-react-views": "~0.7.1"
+    "express-react-views": "~0.7.1",
+    "superagent": "~0.21.0",
+    "fibers": "~1.0.5"
   },
   "devDependencies": {
     "gulp": "~3.8.10",

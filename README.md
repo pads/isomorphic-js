@@ -7,10 +7,12 @@ The example application uses:
 - [React](http://facebook.github.io/react/) as templates to render on both client and server.
 - [React Router Component](http://strml.viewdocs.io/react-router-component) for both client and server side routing.
 - [Webpack](http://webpack.github.io/) to package the server JS code to also be used on the client.
+- [SuperAgent](https://github.com/visionmedia/superagent) to communicate with the API from both client and server.
 
 # Todo
 
-- Implement an API to be used by client and server.
+- Make a useful app using CRUD operations.
+- Refactor.
 
 # Setup
 
