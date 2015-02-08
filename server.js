@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var url = require('url');
 var ReactAsync = require('react-async');
 var engine = require('express-react-views');
+var DocumentTitle = require('react-document-title');
 
 var reactApp = require('./src/App.jsx');
 var apiRouter = require('./api/router');
@@ -48,6 +49,8 @@ app.use(function(req, res, next) {
       if(err) {
         return next(err);
       }
+      // Prevents memory leaks (https://github.com/gaearon/react-document-title#server-usage)
+      DocumentTitle.rewind();
       res.send(markup);
     });
 });

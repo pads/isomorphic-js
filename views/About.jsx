@@ -4,6 +4,7 @@
 var React = require('react');
 var ReactAsync = require('react-async');
 var Link = require('react-router-component').Link;
+var DocumentTitle = require('react-document-title');
 var request = require('../src/api-client');
 
 var About = React.createClass({
@@ -17,12 +18,14 @@ var About = React.createClass({
 
   render: function() {
     return (
-      <section>
-        <h1>About</h1>
-        <p>{this.state.name}</p>
-        <Link href="/">Home</Link>
-      </section>
-    )
+      <DocumentTitle title="About">
+        <section>
+          <h1>About</h1>
+          <p>{this.state.name}</p>
+          <Link href="/">Home</Link>
+        </section>
+      </DocumentTitle>
+    );
   }
 
 });
