@@ -12,7 +12,14 @@ var Home = React.createClass({
       <DocumentTitle title="Home">
         <section>
           <h1>WOO!</h1>
-          <Link href="/About">About</Link>
+          <ul>
+            <li>
+              <Link href="/Playlists">Playlists</Link>
+            </li>
+            <li>
+              <Link href="/About">About</Link>
+            </li>
+          </ul>
         </section>
       </DocumentTitle>
     );

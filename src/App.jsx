@@ -4,6 +4,7 @@
 var React = require('react');
 var Router = require('react-router-component');
 var Home = require('../views/Home.jsx');
+var Playlists = require('../views/Playlists.jsx');
 var About = require('../views/About.jsx');
 var NotFoundPage = require('../views/NotFound.jsx');
 
@@ -24,6 +25,7 @@ var App = React.createClass({
         </head>
         <Pages ref="router" path={this.props.path}>
           <Page path="/" handler={Home} />
+          <Page path="/Playlists" handler={Playlists} host={this.props.host} />
           <Page path="/About" handler={About} host={this.props.host} />
           <NotFound handler={NotFoundPage} />
         </Pages>

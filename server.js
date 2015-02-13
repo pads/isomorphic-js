@@ -11,11 +11,25 @@ var url = require('url');
 var ReactAsync = require('react-async');
 var engine = require('express-react-views');
 var DocumentTitle = require('react-document-title');
+var mongoose = require('mongoose');
 
 var reactApp = require('./src/App.jsx');
 var apiRouter = require('./api/router');
 
 var app = express();
+
+/*
+ * Database
+ */
+mongoose.connect('mongodb://localhost/development', {
+  server: {
+    socketOptions: {
+      keepAlive: 1
+    }
+  }
+});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 /*
  * Misc Config

@@ -7,9 +7,13 @@ var getUrl = function(path, host) {
   return url;
 };
 
+var handleError = function(error) {
+  console.log(error);
+};
+
 var client = {
   get: function(path, host, callback) {
-    return request.get(getUrl(path, host), callback);
+    return request.get(getUrl(path, host), callback).on('error', handleError);
   }
 };
 

@@ -16,7 +16,8 @@ The example application uses:
 
 # Setup
 
-You'll need to have [Node.JS](http://nodejs.org/) installed first, then:
+You'll need to have [Node.JS](http://nodejs.org/download/) and a running
+[mongoDB](http://docs.mongodb.org/manual/administration/install-on-linux/) instance installed first, then:
 
     npm install
     npm start
