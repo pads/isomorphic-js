@@ -2,23 +2,17 @@
 'use strict';
 
 var React = require('react');
-var Link = require('react-router-component').Link;
-var DocumentTitle = require('react-document-title');
+var Layout = require('./Layout.jsx');
 
 var Home = React.createClass({
 
   render: function() {
     return (
-      <DocumentTitle title="Home">
-        <section>
-          <h1>WOO!</h1>
-          <ul>
-            <li>
-              <Link href="/Playlists">Playlists</Link>
-            </li>
-          </ul>
-        </section>
-      </DocumentTitle>
+      <Layout title="Home">
+        <h1>Welcome</h1>
+        <p>This is an example application demonstrating isomorphic JS.</p>
+        <p>It's a bit like Spotify, but for Brummies.</p>
+      </Layout>
     );
   }
 

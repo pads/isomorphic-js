@@ -3,10 +3,9 @@
 
 var React = require('react');
 var ReactAsync = require('react-async');
-var Link = require('react-router-component').Link;
-var DocumentTitle = require('react-document-title');
 var request = require('../src/api-client');
-var Playlist = require('../views/Playlist.jsx');
+var Layout = require('./Layout.jsx');
+var Playlist = require('./Playlist.jsx');
 
 var Playlists = React.createClass({
   mixins: [ReactAsync.Mixin],
@@ -26,13 +25,10 @@ var Playlists = React.createClass({
       );
     });
     return (
-      <DocumentTitle title="Playlists">
-        <section>
-          <h1>Playlists</h1>
-          {playlistNodes}
-          <Link href="/">Home</Link>
-        </section>
-      </DocumentTitle>
+      <Layout title="Playlists">
+        <h1>Playlists</h1>
+        {playlistNodes}
+      </Layout>
     );
   }
 

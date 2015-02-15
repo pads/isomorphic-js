@@ -2,18 +2,16 @@
 'use strict';
 
 var React = require('react');
-var DocumentTitle = require('react-document-title');
+var Layout = require('./Layout.jsx');
 
 var Error = React.createClass({
 
   render: function() {
     return (
-      <DocumentTitle title="Oops!">
-        <section>
+      <Layout title="Oops!">
+        <h1>Sorry, an unexpected error occurred:</h1>
           <p>{this.props.message}</p>
-          <p>{this.props.error}</p>
-        </section>
-      </DocumentTitle>
+      </Layout>
     );
   }
 

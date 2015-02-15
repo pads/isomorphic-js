@@ -1,0 +1,36 @@
+/** @jsx React.DOM */
+'use strict';
+
+var React = require('react');
+var DocumentTitle = require('react-document-title');
+var Link = require('react-router-component').Link;
+
+var Layout = React.createClass({
+
+  render: function() {
+    return (
+      <DocumentTitle title={this.props.title}>
+        <main>
+          <h1>Brumify</h1>
+          <nav>
+            <h1>Menu</h1>
+            <ul>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/Playlists">Playlists</Link>
+              </li>
+            </ul>
+          </nav>
+          <section>
+            {this.props.children}
+          </section>
+        </main>
+      </DocumentTitle>
+    );
+  }
+
+});
+
+module.exports = Layout;
