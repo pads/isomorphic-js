@@ -19,7 +19,7 @@ var Layout = React.createClass({
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/Playlists">Playlists</Link>
+                <Link href="/playlists">Playlists</Link>
               </li>
             </ul>
           </nav>
