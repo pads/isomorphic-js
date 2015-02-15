@@ -16,9 +16,6 @@ var Home = React.createClass({
             <li>
               <Link href="/Playlists">Playlists</Link>
             </li>
-            <li>
-              <Link href="/About">About</Link>
-            </li>
           </ul>
         </section>
       </DocumentTitle>
