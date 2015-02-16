@@ -21,7 +21,7 @@ var PlaylistForm = React.createClass({
     return (
       <form action="/playlists" method="POST" onSubmit={this.handleSubmit}>
         <h1>Create Playlist</h1>
-        <input type="text" placeholder="Enter a playlist name" ref="name" />
+        <input name="playlist[name]" type="text" placeholder="Enter a playlist name" ref="name" />
         <input type="submit" value="Create" />
       </form>
     );

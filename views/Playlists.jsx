@@ -13,16 +13,30 @@ var Playlists = React.createClass({
   mixins: [ReactAsync.Mixin],
 
   handlePlaylistSubmit: function(playlist) {
+    var playlists = this.state.playlists;
     request.post('/api/playlists', this.props.host, playlist, function (response) {
-      this.state.playlists.push(response.body.playlist);
+      playlists.push(response.body.playlist);
       this.setState({playlists: playlists});
     }.bind(this));
   },
 
-  getInitialStateAsync: function(callback) {
-    request.get('/api/playlists', this.props.host, function (response) {
-      callback(null, {playlists: response.body.playlists});
+  createPlaylist: function(playlist, callback) {
+    var host = this.props.host;
+    request.post('/api/playlists', host, playlist, function () {
+      request.get('/api/playlists', host, function (response) {
+        callback(null, {playlists: response.body.playlists});
+      });
     });
+  },
+
+  getInitialStateAsync: function(callback) {
+    if(this.props.body && this.props.body.playlist) {
+      this.createPlaylist({playlist: this.props.body.playlist}, callback);
+    } else {
+      request.get('/api/playlists', this.props.host, function (response) {
+        callback(null, {playlists: response.body.playlists});
+      });
+    }
   },
 
   render: function() {

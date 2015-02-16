@@ -25,7 +25,7 @@ var App = React.createClass({
         </head>
         <Pages ref="router" path={this.props.path}>
           <Page path="/" handler={Home} />
-          <Page path="/playlists" handler={Playlists} host={this.props.host} />
+          <Page path="/playlists" handler={Playlists} host={this.props.host} body={this.props.body}/>
           <Page path="/playlists/:id" handler={Playlist} host={this.props.host} />
           <NotFound handler={NotFoundPage} />
         </Pages>

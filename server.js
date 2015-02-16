@@ -37,7 +37,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -56,17 +56,17 @@ app.use('/api', apiRouter);
 /*
  * Page Routing
  */
-app.use(function(req, res, next) {
-    var path = url.parse(req.url).pathname;
-    var host = req.get('host');
-    var app = reactApp({path: path, host: host});
+app.use(function(request, response, next) {
+    var path = url.parse(request.url).pathname;
+    var host = request.get('host');
+    var app = reactApp({path: path, host: host, body: request.body});
     ReactAsync.renderToStringAsync(app, function(err, markup) {
       if(err) {
         return next(err);
       }
       // Prevents memory leaks (https://github.com/gaearon/react-document-title#server-usage)
       DocumentTitle.rewind();
-      res.send(markup);
+      response.send(markup);
     });
 });
 
