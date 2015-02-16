@@ -21,6 +21,7 @@ var App = React.createClass({
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
           <link rel="stylesheet" href="stylesheets/style.css" />
         </head>
         <Pages ref="router" path={this.props.path}>

@@ -11,9 +11,8 @@ var Layout = React.createClass({
     return (
       <DocumentTitle title={this.props.title}>
         <main>
-          <h1>Brumify</h1>
-          <nav>
-            <h1>Menu</h1>
+          <nav className="pure-menu pure-menu-open pure-menu-horizontal">
+            <Link href="/" className="pure-menu-heading">Brumify</Link>
             <ul>
               <li>
                 <Link href="/">Home</Link>
