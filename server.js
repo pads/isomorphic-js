@@ -44,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*
  * Views
  */
+app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', engine.createEngine());
 
