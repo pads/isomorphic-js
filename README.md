@@ -9,11 +9,6 @@ The example application uses:
 - [Webpack](http://webpack.github.io/) to package the server JS code to also be used on the client.
 - [SuperAgent](https://github.com/visionmedia/superagent) to communicate with the API from both client and server.
 
-# Todo
-
-- Make a useful app using CRUD operations.
-- Refactor.
-
 # Setup
 
 You'll need to have [Node.JS](http://nodejs.org/download/) and a running
