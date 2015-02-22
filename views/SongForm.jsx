@@ -18,6 +18,11 @@ var SongForm = React.createClass({
     };
 
     this.props.onSongSubmit(song);
+
+    // Reset form after submission
+    this.refs.artist.getDOMNode().value = '';
+    this.refs.title.getDOMNode().value = '';
+    this.refs.genre.getDOMNode().value = '';
   },
 
   render: function() {

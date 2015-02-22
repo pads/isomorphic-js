@@ -15,6 +15,9 @@ var PlaylistForm = React.createClass({
     };
 
     this.props.onPlaylistSubmit(playlist);
+
+    // Reset form after submission
+    this.refs.name.getDOMNode().value = '';
   },
 
   render: function() {
