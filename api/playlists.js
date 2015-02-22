@@ -21,7 +21,7 @@ router.route('/')
 
 router.route('/:id')
   .get(function(request, response) {
-    Playlist.findById(request.params.id, function(error, playlist) {
+    Playlist.findById(request.params.id).populate('songs').exec(function(error, playlist) {
       response.json({
         playlist: playlist
       });
