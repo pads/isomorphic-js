@@ -6,3 +6,12 @@ section {
     border-top: 1px solid #e5e5e5;
     padding: 18px;
 }
+
+.pure-form-stacked input {
+    width: 100%;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+}
